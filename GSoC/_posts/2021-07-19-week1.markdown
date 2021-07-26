@@ -10,4 +10,4 @@ Started reading about:
 1. MibS 
 2. Bi-level optimization
 
-and continued with creating documentation for the BilevelJuMP.jl.
+and continued with creating documentation for the [BilevelJuMP.jl](https://github.com/joaquimg/BilevelJuMP.jl).
