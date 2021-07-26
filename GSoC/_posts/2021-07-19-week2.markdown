@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Week 2"
+date:   2021-06-14 14:12:14 -0400
+category: GSoC
+---
+
+Started with reading the examples which has been created for the BilevelJuMP.jl. Also, it continued with creating some example for with documentation for the BilevelJuMP.jl. 

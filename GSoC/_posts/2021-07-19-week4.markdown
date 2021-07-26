@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Week 4"
+date:   2021-06-28 14:12:14 -0400
+category: GSoC
+---
+
+Started to work on converting the input of the BilevelJuMP.jl to MPS file. I started to learn about MathOptInterface.jl which has been used in BilevelJuMP.jl.
