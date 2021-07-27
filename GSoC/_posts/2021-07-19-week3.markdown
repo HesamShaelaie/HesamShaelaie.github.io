@@ -5,4 +5,11 @@ date:   2021-06-21 14:12:14 -0400
 category: GSoC
 ---
 
-In this week, I edited and finilized the documentation and examples. 
+This week, I edited and finalized the [documentation](https://github.com/joaquimg/BilevelJuMP.jl/pull/126) and the following examples. 
+
+Here are the examples:
+1. [example (6)](https://github.com/joaquimg/BilevelJuMP.jl/pull/132)
+2. [example (7)](https://github.com/joaquimg/BilevelJuMP.jl/pull/134)
+3. [example (8)](https://github.com/joaquimg/BilevelJuMP.jl/pull/136)
+4. [example (9)](https://github.com/joaquimg/BilevelJuMP.jl/pull/137)
+5. [example (10)](https://github.com/joaquimg/BilevelJuMP.jl/pull/139)

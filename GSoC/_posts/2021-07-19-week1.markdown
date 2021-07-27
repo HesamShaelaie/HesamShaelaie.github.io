@@ -7,7 +7,9 @@ category: GSoC
 
 Started reading about:
 
-1. MibS 
-2. Bi-level optimization
+1. [Branch & Cut in MibS paper](https://link.springer.com/article/10.1007%2Fs12532-020-00183-6) from Sahar Tahernejad, Ted K. Ralphs and Scott T. DeNegre 
+2. [MibS dissertation](http://www.optimization-online.org/DB_FILE/2017/04/5977.pdf) from Sahar Tahernejad and Ted K. Ralphs 
+3. [Algorithms for Mixed-Integer Bilevel Problems with Convex Followers](https://opus4.kobv.de/opus4-trr154/files/383/dissertation_kleinert_published_digital.pdf) from 
+Thomas Kleinert
 
-and continued with creating documentation for the [BilevelJuMP.jl](https://github.com/joaquimg/BilevelJuMP.jl).
+and continued with creating [documentation](https://github.com/joaquimg/BilevelJuMP.jl/pull/119) for the [BilevelJuMP.jl](https://github.com/joaquimg/BilevelJuMP.jl).

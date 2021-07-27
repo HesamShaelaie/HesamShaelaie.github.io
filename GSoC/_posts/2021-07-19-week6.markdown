@@ -5,4 +5,4 @@ date:   2021-07-12 14:12:14 -0400
 category: GSoC
 ---
 
-We created the MPS which is one of the input for to feed MibS.
+We updated the [function](https://github.com/joaquimg/BilevelJuMP.jl/pull/142) to create the MPS file, which is one of the inputs for feeding MibS.

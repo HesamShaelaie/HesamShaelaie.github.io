@@ -5,4 +5,13 @@ date:   2021-06-14 14:12:14 -0400
 category: GSoC
 ---
 
-Started with reading the examples which has been created for the BilevelJuMP.jl. Also, it continued with creating some example for with documentation for the BilevelJuMP.jl. 
+Started with reading the [examples](https://github.com/joaquimg/BilevelJuMP.jl/blob/23073d55ac0d9bd818b41af73cf7e076f34264e2/test/jump.jl) which has been created for the [BilevelJuMP.jl](https://github.com/joaquimg/BilevelJuMP.jl). Also, it continued with creating some example for with documentation for the [BilevelJuMP.jl](https://github.com/joaquimg/BilevelJuMP.jl).<br>
+
+You can fine this examples:
+1. [example (2.2)](https://github.com/joaquimg/BilevelJuMP.jl/pull/127)
+2. [example (3)](https://github.com/joaquimg/BilevelJuMP.jl/pull/129)
+3. [example (4)](https://github.com/joaquimg/BilevelJuMP.jl/pull/130)
+5. [example (5)](https://github.com/joaquimg/BilevelJuMP.jl/pull/133)
+
+
+

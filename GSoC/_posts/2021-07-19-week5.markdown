@@ -5,4 +5,4 @@ date:   2021-07-05 14:12:14 -0400
 category: GSoC
 ---
 
-We wrote down a function to separate the upper and lower level variables, constraints, and objective functions. This information is necessary to create MPS and AUX files for MibS. 
+We wrote down a [function](https://github.com/joaquimg/BilevelJuMP.jl/pull/142) to separate the upper and lower level variables, constraints, and objective functions. This information is necessary to create MPS and AUX files for MibS. 
