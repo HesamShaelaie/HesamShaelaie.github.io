@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Week 10"
+date:   2021-08-9 14:12:14 -0400
+category: GSoC
+---
+
+In this week, I was focused on extracting information of MibS log file and returning those information julia's environment. Also, I added a thorough [instruction](https://github.com/joaquimg/BilevelJuMP.jl/pull/142/commits/936ca424d05c40b0cee63b0ac1fdb63a1987053c) for the our function. At the end, I wrote an [example](https://github.com/joaquimg/BilevelJuMP.jl/pull/142/commits/2e283aedb18a83025ae219d59dfac7391dc71dac) for those who are interested to use the MibS in julia. 

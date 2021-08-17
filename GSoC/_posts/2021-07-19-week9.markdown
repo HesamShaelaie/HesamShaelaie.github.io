@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Week 9"
+date:   2021-08-2 14:12:14 -0400
+category: GSoC
+---
+
+In this week, I integrated the MPS, AUS, which was created from and with [MathOptInterface.jl](https://github.com/jump-dev/MathOptInterface.jl). We find some bugs in the inputs of MibS. We reached a successful run on our integration. You can see the updates in the [function](https://github.com/joaquimg/BilevelJuMP.jl/pull/142).
