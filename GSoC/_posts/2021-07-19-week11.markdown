@@ -4,9 +4,9 @@ title:  "Summary of achievements"
 date:   2021-08-21 14:12:14 -0400
 category: GSoC
 ---
-# Summary of achievements
 
-On this page, I provided an abstract of the ten weeks work, and you can see the report of each week in [here](https://hesamshaelaie.github.io/GSoC/). For me, GSoC codes started by reviewing the basics of bilevel optimization, MibS, and MathOptInterface (MOI). At the very first steps, I tried to write an [abstract](https://github.com/joaquimg/BilevelJuMP.jl/pull/119) over bi-level optimization based on what I have read and got familiar with the MOI by writing some examples from different resources to see how BilevbelJump, Ipopt, JuMP, and Test libraries work in Julia. In the next steps, I went over the inputs of the MibS and started to see what is the format of the AUX file (one of the MibS inputs) in different examples. In the following, you can see the structure of the bilevel problem in BilevelJuMP. 
+
+This project is an extension on [BilevelJuMP.jl](https://github.com/joaquimg/BilevelJuMP.jl) with adding [MibS](https://github.com/coin-or/MibS) to its solvers. On this page, I provided an abstract of the ten weeks work, and you can see the report of each week in [here](https://hesamshaelaie.github.io/GSoC/). For me, GSoC codes started by reviewing the basics of bilevel optimization, MibS, and MathOptInterface (MOI). At the very first steps, I tried to write an [abstract](https://github.com/joaquimg/BilevelJuMP.jl/pull/119) over bi-level optimization based on what I have read and got familiar with the MOI by writing some examples from different resources to see how BilevbelJump, Ipopt, JuMP, and Test libraries work in Julia. In the next steps, I went over the inputs of the MibS and started to see what is the format of the AUX file (one of the MibS inputs) in different examples. In the following, you can see the structure of the bilevel problem in BilevelJuMP. 
 
 ```
 using BilevelJuMP
