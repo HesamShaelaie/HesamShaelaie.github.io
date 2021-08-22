@@ -32,6 +32,8 @@ end)
 In this project, we need to extract the elements of the model from MOI and convert it to MPS and AUX files which are the input of the MibS. For this purpose we wrote the [_build_single_model](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L3-L74) and [_write_auxillary_file](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L83-L116) functions for MPS and AUX file, respectively. In the following, you can see the MPS and AUX files that are created by our function based on the above example.
  
 
+
+
 ## MPS file
 ```
 NAME          
@@ -82,7 +84,7 @@ LC 2
 LR 3
 LR 4
 LR 5
-LO 1.0
+LO 1
 OS 1
 ```
 
@@ -95,3 +97,18 @@ OS 1
 # Future contributions:
  1. In BilevelJuMP, there are two attributes called upperonly and loweronly, which are designed to defining variables only in upper and lower problems, respectively. Our code is designed to work with the general form of the problem, which includes the upperonly and loweronly attributes, but it is not tailored to be compatible with these attributes. One of the future contributions is to update the functions to be consistent with these attributes. 
  2. MibS is designed to solve problems that have integer linking variables. This restriction of the MibS forced us to define the functions in a way it solves only MIP-MIP problems. One of the improvements of our code can be on checking algorithm inside the [_build_single_model](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L47-L55) to only check integrality of linking variables. It is worth mentioning that Professor [Ted Ralph](https://coral.ise.lehigh.edu/~ted/) and I will update the MibS to solve LP-LP problems as well as MIP-MIP, simply by passing the subproblems to [SYMPHONY](https://projects.coin-or.org/SYMPHONY).
+
+
+
+ | Weeks <br/> (linked to full description) | Short description | Result |
+ |-------|-------------------------------|--------|
+ |[One](https://hesamshaelaie.github.io/gsoc/2021/06/07/week1.html)     |Learning the basics| 1. Working on [documentation](https://github.com/joaquimg/BilevelJuMP.jl/pull/119)|
+ |[Two](https://hesamshaelaie.github.io/gsoc/2021/06/14/week2.html)     |Creating examples with MOI |1. [example (2.2)](https://github.com/joaquimg/BilevelJuMP.jl/pull/127) <br/> 2. [example (3)](https://github.com/joaquimg/BilevelJuMP.jl/pull/129)<br/> 3. [example (4)](https://github.com/joaquimg/BilevelJuMP.jl/pull/130)<br/> 5. [example (5)](https://github.com/joaquimg/BilevelJuMP.jl/pull/133) <br/> 6. Working on [documentation](https://github.com/joaquimg/BilevelJuMP.jl/pull/119)|
+ |[Three](https://hesamshaelaie.github.io/gsoc/2021/06/21/week3.html)   |Creating examples with MOI |1. [example (6)](https://github.com/joaquimg/BilevelJuMP.jl/pull/132)<br/> 2. [example (7)](https://github.com/joaquimg/BilevelJuMP.jl/pull/134)<br/> 3. [example (8)](https://github.com/joaquimg/BilevelJuMP.jl/pull/136)<br/> 4. [example (9)](https://github.com/joaquimg/BilevelJuMP.jl/pull/137)<br/> 5. [example (10)](https://github.com/joaquimg/BilevelJuMP.jl/pull/139) <br/> 6. Working on [documentation](https://github.com/joaquimg/BilevelJuMP.jl/pull/119)|
+ |[Four](https://hesamshaelaie.github.io/gsoc/2021/06/28/week4.html)    | Learning the input structure of MibS                 |1. [Notes] on the structure of input({{ site.url }}/images/SC.png)|
+ |[Five](https://hesamshaelaie.github.io/gsoc/2021/07/05/week5.html)    | Extracting element of a bilevel model from BilevelJuMP |1. function [_build_single_model()](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L3-L82)|
+ |[Six](https://hesamshaelaie.github.io/gsoc/2021/07/12/week6.html)     | Still working on the extraction and writing test set for MPS files |1. function [_build_single_model()](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L3-L82)<br/> 2. [test sets](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/test/mibs.jl#L17-L194) on MPS generator|
+ |[Seven](https://hesamshaelaie.github.io/gsoc/2021/07/19/week7.html)   | Writing AUX file              | 1. function[_write_auxillary_file](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L83-L116) <br/> 2. testing the AUX file with running MibS|
+ |[Eight](https://hesamshaelaie.github.io/gsoc/2021/07/26/week8.html)   | Learning to write blog for GSoC with Jekyll and working on parsing data from MibS log file  |1. function [_parse_output](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L132-L218)|
+ |[Nine](https://hesamshaelaie.github.io/gsoc/2021/08/02/week9.html)    | Integrating all the functions and debugging                 |1. function [solve_with_MibS](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L220-L260) <br/> 2. [test sets](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/test/mibs.jl#L196-L336)|
+ |[Ten](https://hesamshaelaie.github.io/gsoc/2021/08/09/week10.html)    | Writing documentation on the function and adding examples                   |1. [MibS example one](https://github.com/joaquimg/BilevelJuMP.jl/blob/master/docs/src/examples/MibS_example1.jl) <br/> 2. [MibS example two](https://github.com/joaquimg/BilevelJuMP.jl/blob/master/docs/src/examples/MibS_example2.jl)|
