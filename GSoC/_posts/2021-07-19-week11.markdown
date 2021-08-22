@@ -1,0 +1,114 @@
+---
+layout: post
+title:  "Summary of achievements"
+date:   2021-08-21 14:12:14 -0400
+category: GSoC
+---
+
+On this page, I provided an abstract of the ten weeks work, and you can see the report of each week in [here](https://hesamshaelaie.github.io/GSoC/). For me, GSoC codes started by reviewing the basics of bilevel optimization, MibS, and MathOptInterface (MOI). At the very first steps, I tried to write an [abstract](https://github.com/joaquimg/BilevelJuMP.jl/pull/119) over bi-level optimization based on what I have read and got familiar with the MOI by writing some examples from different resources to see how BilevbelJump, Ipopt, JuMP, and Test libraries work in Julia. In the next steps, I went over the inputs of the MibS and started to see what is the format of the AUX file (one of the MibS inputs) in different examples. In the following, you can see the structure of the bilevel problem in BilevelJuMP. 
+
+‘’’julia
+using BilevelJuMP
+using JuMP
+using Test
+
+model = BilevelModel()
+
+## First we need to create all of the variables in the upper and lower problems:
+
+## Upper level variables
+@variable(Upper(model), x, Int)
+@variable(Upper(model), z, Bin)
+
+#Lower level variables
+@variable(Lower(model), y, Int)
+
+## Then we can add the objective and constraints of the upper problem:
+
+## Upper level objecive function
+@objective(Upper(model), Min, 2x - 4y + 10z)
+
+## Upper constraints
+@constraints(Upper(model), begin
+    u1, -3x + 2y + 5z <= 12
+    u2, x + 2y <= 20
+    u3, x <= 10
+end)
+
+## Followed by the objective and constraints of the lower problem:
+
+## Lower objective function
+@objective(Lower(model), Min, y)
+
+## Lower constraints
+@constraint(Lower(model), l1,  2x -  y + 3z <= 7)
+@constraint(Lower(model), l2, -2x +  4y <= 16)
+@constraint(Lower(model), l3, y <= 5)
+‘’’
+
+In this project, we need to extract the elements of the model from MOI and convert it to MPS and AUX files which are the input of the MibS. For this purpose we wrote the [_build_single_model](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L3-L74) and [_write_auxillary_file](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L83-L116) functions for MPS and AUX file, respectively. In the following, you can see the MPS and AUX files that are created by our function based on the above example.
+ 
+'''julia
+ ## MPS file
+
+NAME          
+ROWS
+ N  OBJ
+ L  u1
+ L  u2
+ L  u3
+ L  c4
+ L  c5
+ L  c6
+COLUMNS
+    MARKER    'MARKER'                 'INTORG'
+    x         u1        -3
+    x         u2        1
+    x         u3        1
+    x         c4        2
+    x         c5        -2
+    x         OBJ       2
+    z         u1        5
+    z         c4        3
+    z         OBJ       10
+    y         u1        2
+    y         u2        2
+    y         c4        -1
+    y         c5        4
+    y         c6        1
+    y         OBJ       -4
+RHS
+    rhs       u1        12
+    rhs       u2        20
+    rhs       u3        10
+    rhs       c4        7
+    rhs       c5        16
+    rhs       c6        5
+RANGES
+BOUNDS
+ FR bounds    x
+ BV bounds    z
+ FR bounds    y
+ENDATA
+
+## AUX file
+
+N 1
+M 3
+LC 2
+LR 3
+LR 4
+LR 5
+LO 1.0
+OS 1
+'''
+
+ 
+ 
+ In the next step, we wrote some [test sets](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/test/mibs.jl#L17-L194) to check the MPS generator's output. In order to check the AUX file, we fed the MibS with both generated MPS and AUX files and checked the results. Now, it was time to extract information from the output of the MibS and return it to the BilevelJuMP environment. For this goal, we wrote the [_parse_output](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L132-L218) function. At this point, we had all the elements of the puzzle, preparing the input of MibS, using MibS, and extracting the output; we create the function [solve_with_MibS](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L220-L260) to tie all these processes together. Also, we designed some [test sets](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/test/mibs.jl#L196-L336) to check the whole process and see everything works fine. Finally, we prepared some examples ([1](https://github.com/joaquimg/BilevelJuMP.jl/blob/master/docs/src/examples/MibS_example1.jl),[2](https://github.com/joaquimg/BilevelJuMP.jl/blob/master/docs/src/examples/MibS_example2.jl)) in order to show others how they can use our package. While we were designing some of these examples, we find an issue in MibS, which we reported that in here.
+ 
+ 
+ 
+ Future contributions:
+ 1- In BilevelJuMP, there are two attributes called upperonly and loweronly, which are designed to defining variables only in upper and lower problems, respectively. Our code is designed to work with the general form of the problem, which includes the upperonly and loweronly attributes, but it is not tailored to be compatible with these attributes. One of the future contributions is to update the functions to be consistent with these attributes. 
+ 2- MibS is designed to solve problems that have integer linking variables. This restriction of the MibS forced us to define the functions in a way it solves only MIP-MIP problems. One of the improvements of our code can be on checking algorithm inside the [_build_single_model](https://github.com/joaquimg/BilevelJuMP.jl/blob/e84d6110a684da5d513157dc988a94b85d090d27/src/jump_input.jl#L47-L55) to only check integrality of linking variables. It is worth mentioning that Professor [Ted Ralph](https://coral.ise.lehigh.edu/~ted/) and I will update the MibS to solve LP-LP problems as well as MIP-MIP, simply by passing the subproblems to [SYMPHONY](https://projects.coin-or.org/SYMPHONY).
