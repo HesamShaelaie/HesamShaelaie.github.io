@@ -9,9 +9,9 @@ profile:
   image: Hesam_BW.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>You miss 100% of the shots you don't take.</p>
-    <p> -Wayne Gretzky,</p>
-    
+    <p>"You miss 100% of the shots you don't take."</p>
+    <p>-Wayne Gretzky,</p>
+    <p> </p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
