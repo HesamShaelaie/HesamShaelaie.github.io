@@ -9,8 +9,8 @@ profile:
   image: Hesam_BW.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>"The only impossible journey is the one you never begin."</p>
-    <p>Tony Robbins</p>
+    <p>You miss 100% of the shots you don't take.</p>
+    <p> -Wayne Gretzky,</p>
     
 
 news: true # includes a list of news items
