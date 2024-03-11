@@ -20,12 +20,13 @@ pagination:
 
 {% assign blog_name_size = site.blog_name | size %}
 {% assign blog_description_size = site.blog_description | size %}
+{% assign reduced_blog_description_size = blog_description_size | times: 0.5 | round %}
 
-{% if blog_name_size > 0 or blog_description_size > 0 %}
+{% if blog_name_size > 0 or reduced_blog_description_size > 0 %}
 
   <div class="header-bar">
     <h1>{{ site.blog_name }}</h1>
-    <h2>{{ site.blog_description }}</h2>
+    <h2>{{ site.reduced_blog_description_size }}</h2>
   </div>
   {% endif %}
 
