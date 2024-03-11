@@ -9,9 +9,9 @@ profile:
   image: Hesam_BW.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Room 353,</p>
-    <p>200 West Packer Avenue</p>
-    <p>Bethlehem, PA 18015</p>
+    <p>"The only impossible journey is the one you never begin."</p>
+    <p>Tony Robbins</p>
+    
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
