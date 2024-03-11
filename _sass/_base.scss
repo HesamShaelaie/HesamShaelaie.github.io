@@ -198,9 +198,15 @@ ul.task-list input[type="checkbox"] {
   .more-info {
     margin-bottom: 5px;
     margin-top: 5px;
-    font-family: monospace;
+    
 
-    p {
+    p.head {
+      font-family: Beautifulheart;
+      font-size: 2rem;
+      display: inline-block;
+      margin: 0;
+    }
+    p.text {
       display: inline-block;
       margin: 0;
     }

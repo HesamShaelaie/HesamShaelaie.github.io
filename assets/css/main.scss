@@ -10,6 +10,7 @@ $max-content-width: {{ site.max_width }};
   "variables",
   "themes",
   "layout",
+  "blog",
   "base",
   "distill",
   "cv",
@@ -18,3 +19,9 @@ $max-content-width: {{ site.max_width }};
   "font-awesome/solid",
   "font-awesome/regular"
 ;
+
+
+@font-face {
+  font-family: "Beautifulheart";
+  src: url("../fonts/BeautifulHeart.ttf");
+}
