@@ -25,3 +25,20 @@ $max-content-width: {{ site.max_width }};
   font-family: "Beautifulheart";
   src: url("../fonts/BeautifulHeart.ttf");
 }
+
+@font-face {
+  font-family: "quotefont";
+  src: url("../fonts/VeganStylePersonalUse-5Y58.ttf");
+}
+
+
+@font-face {
+  font-family: "quotefontv2";
+  src: url("../fonts/Bulgatti-xgMV.ttf");
+}
+
+
+@font-face {
+  font-family: "quotefontv3";
+  src: url("../fonts/ThePatience400.otf");
+}

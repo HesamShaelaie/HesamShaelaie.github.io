@@ -1,6 +1,14 @@
 div.post > div.header-bar > h2{
     padding: 10px;
-    text-align: left;
-    text-justify: initial;
-    font-size: 1.5em;
+    text-align: justify;
+    text-justify: distribute;
+    font-size: 1em;
+}
+
+
+div.post > article > div.clearfix > p{
+    padding: 0px;
+    text-align: justify;
+    text-justify: distribute;
+    font-size: 1em;
 }
